@@ -1,0 +1,322 @@
+body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    margin: 0;
+    padding: 0;
+}
+
+.logo_img {
+    height: 100px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #e9ecef;
+    gap: 20px;
+    margin: 0;
+    position: relative;
+    top: 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #343a40;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.navbar .btnlogin-popup {
+    background-color: #00c471;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.navbar .btnsignup-popup {
+    background-color: #f05650;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 16px;
+}
+
+.navbar .btnlogin-popup:hover {
+    background-color: #009858;
+}
+
+.navbar .btnsignup-popup:hover {
+    background-color: red;
+}
+
+.course-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.course-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.course-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.course-title:hover {
+    color: #175cbe;
+}
+
+.course-instructor {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.course-price {
+    font-weight: bold;
+    color: #175cbe;
+    margin-top: auto;
+}
+
+.course-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.star {
+    color: #ffc107;
+    margin-right: 5px;
+}
+
+.rating-number {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.student-count {
+    color: #666;
+    font-size: 12px;
+}
+
+.course-section {
+    padding: 40px 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .course-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .course-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btnlogin-popup,
+.btnsignup-popup {
+    background-color: #00c471;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btnsignup-popup {
+    background-color: #f05650;
+}
+
+.btnlogin-popup:hover,
+.btnsignup-popup:hover {
+    background-color: #009858;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-btn {
+    background-color: #00c471;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: #009858;
+}
+
+.links {
+    margin-top: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.social-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-login p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icons img {
+    width: 40px;
+    cursor: pointer;
+}

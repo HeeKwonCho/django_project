@@ -1,0 +1,14 @@
+<header class="header">
+  <nav class="navbar">
+    <a href="/lecture" class="logo"><img class="logo_img" src="images/logo.jpg" alt=""></a>
+    <div class="nav-links">
+      {% for category in category_list %}
+        <a href="#">{{ category.cat_name }}</a>
+      {% endfor %}
+    </div>
+    <div class="auth-buttons">
+      <button class="btnlogin-popup">로그인</button>
+      <button class="btnsignup-popup">회원가입</button>
+    </div>
+  </nav>
+</header>

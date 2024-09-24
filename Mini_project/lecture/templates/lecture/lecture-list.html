@@ -1,0 +1,53 @@
+{% extends "./layout.html" %}
+{% block contents %}
+  <section class="course-section">
+    <h2 class="section-title">강의 목록</h2>
+    <div class="course-container">
+      {% for lec in lecture_list %}
+        <div class="course-card" data-id="{{ lec.id }}" data-category="웹 개발">
+          <img src="{{ lec.lec_img_link }}" alt="{{ lec.title }}" class="course-image">
+          <div class="course-info">
+            <a href="{{ lec.lec_link }}" class="course-title">{{ lec.lec_title }}</a>
+            <div class="course-instructor">{{ lec.lecturer.lecturer_name }}</div>
+            <div class="course-rating">
+              <span class="star">★</span>
+              <span class="rating-number">{{ lec.rating }}</span>
+              <span class="review-count">({{ lec.review_count }})</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </section>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="login-form">
+        <img src="images/logo.jpg" alt="Logo" class="logo-img">
+        <form>
+          <input type="email" placeholder="이메일" required="required">
+          <input type="password" placeholder="비밀번호" required="required">
+          <button type="submit" class="login-btn">로그인</button>
+          <div class="links">
+            <a href="#">비밀번호 찾기</a>
+            |
+            <a href="#">회원가입</a>
+            |
+            <a href="#">아이디(이메일) 찾기</a>
+          </div>
+          <div class="social-login">
+            <p>간편 로그인</p>
+            <div class="social-icons">
+              <a href="#"><img src="images/kakao.png" alt="Kakao"></a>
+              <a href="#"><img src="images/google.png" alt="Google"></a>
+              <a href="#"><img src="images/github.png" alt="GitHub"></a>
+              <a href="#"><img src="images/apple.png" alt="Apple"></a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
