@@ -21,11 +21,22 @@
       {% endfor %}
     </div>
     <div class="pagination">
-      <span>page:</span>
-      {% for i in page_numbers %}
-        <a href="?page={{ i }}">{{ i }}</a>
-      {% endfor %}
-    </div>
+      <span class="step-links">
+          {% if lecture_list.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ lecture_list.previous_page_number }}">previous</a>
+          {% endif %}
+  
+          <span class="current">
+              Page {{ lecture_list.number }} of {{ lecture_list.paginator.num_pages }}.
+          </span>
+  
+          {% if lecture_list.has_next %}
+              <a href="?page={{ lecture_list.next_page_number }}">next</a>
+              <a href="?page={{ lecture_list.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
+  </div>
   </section>
 
   <div id="loginModal" class="modal">
