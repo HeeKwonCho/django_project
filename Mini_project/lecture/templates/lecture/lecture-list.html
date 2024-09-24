@@ -1,4 +1,6 @@
 {% extends "./layout.html" %}
+{% load humanize %}
+
 {% block contents %}
   <section class="course-section">
     <h2 class="section-title">강의 목록</h2>
@@ -12,7 +14,7 @@
             <div class="course-rating">
               <span class="star">★</span>
               <span class="rating-number">{{ lec.rating }}</span>
-              <span class="review-count">({{ lec.review_count }})</span>
+              <span class="review-count">({{ lec.review_count|intcomma }})</span>
             </div>
           </div>
         </div>
