@@ -6,26 +6,37 @@
 {% block contents %}
   <div class="course-detail">
     <div class="course-card">
-      <div class="course-image">
-        <img src="{% static 'images/course-placeholder.jpg' %}" alt="강의 이미지">
-      </div>
-      <div class="course-info">
-        <h1 id="course-title">강의 제목</h1>
-        <p id="course-instructor">강사: 강사명</p>
-        <p id="course-price">가격: 00,000원</p>
-        <p id="course-rating">평점: ★ 4.5</p>
-      </div>
+        <div class="course-image">
+           <img src="{{ lecture_info.lec_img_link }}" alt="{{ lecture_info.lec_title }}">
+        </div>
+        <div class="course-info">
+        <h1 id="course-title">{{ lecture_info.lec_title }}</h1>
+        <p id="course-instructor">강사: {{ lecture_info.lecturer.lecturer_name }}</p>
+        <p id="course-rating">평점: ★ {{ lecture_info.rating }}</p>
+        </div>
     </div>
   </div>
 
   <div class="comments-section">
     <h2>리뷰 및 댓글</h2>
     <div id="comments-list">
+        <ul>
+            {% for comment in comment_list %}
+            <li>{{ comment.content }}</li>
+            {% endfor %}
+        </ul>
     </div>
+    {% if user.is_authenticated %}
     <div class="comment-form">
-      <textarea id="comment-input" placeholder="리뷰를 작성하세요..."></textarea>
-      <button id="submit-comment">댓글 작성</button>
+      <form method="POST">
+        {% csrf_token %}
+        내용:
+        {{ form.content }}
+      {% comment %} <textarea id="comment-input" placeholder="리뷰를 작성하세요..."></textarea> {% endcomment %}
+        <button id="submit-comment">댓글 작성</button>
+      </form>
     </div>
+    {% endif %}
   </div>
 {% endblock %}
 {% block scripts %}
