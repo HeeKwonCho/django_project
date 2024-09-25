@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "courses"
 ]
 
 MIDDLEWARE = [
@@ -99,6 +101,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    BASE_DIR / "courses/static",  # courses 앱의 static 폴더 추가
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
