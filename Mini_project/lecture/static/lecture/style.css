@@ -156,6 +156,12 @@ body {
 
 .rating-number {
     font-weight: bold;
+    font-size: 0.875rem;
+    margin-right: 5px;
+}
+
+.review-count {
+    font-size: 0.875rem;
     margin-right: 5px;
 }
 

@@ -17,7 +17,7 @@ def lecture_list(request):
     # page_numbers = list(range(start + 1, end + 2))
     category_list = Categories.objects.all()
     lecture_list = Lectures.objects.prefetch_related("comments_set").all()
-    
+
     PAGE_SIZE = 20
     paginator = Paginator(lecture_list, PAGE_SIZE)
 
