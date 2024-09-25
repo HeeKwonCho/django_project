@@ -1,24 +1,66 @@
+// 로그인 모달 관련 코드
 const modal = document.getElementById('loginModal');
 const btnLogin = document.querySelector('.btnlogin-popup');
 const spanClose = document.querySelector('.close');
 
+// 로그인 버튼 클릭 시 모달 표시
 if (btnLogin) {
     btnLogin.onclick = function() {
         modal.style.display = 'block';
     }
 }
 
+// 모달 닫기 버튼 클릭 시 모달 숨기기
 if (spanClose) {
     spanClose.onclick = function() {
         modal.style.display = 'none';
     }
 }
 
+// 모달 외부 클릭 시 모달 숨기기
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = 'none';
     }
 }
+
+// 사용자 로고 클릭 시 드롭다운 메뉴 표시/숨기기
+const userLogo = document.getElementById('userLogo');
+const userDropdown = document.getElementById('userDropdown');
+
+if (userLogo) {
+    userLogo.onclick = function () {
+        if (userDropdown) {
+            userDropdown.classList.toggle('show');
+        }
+    }
+}
+
+// 드롭다운 외부 클릭 시 드롭다운 숨기기
+window.onclick = function(event) {
+    if (!event.target.matches('.user-logo') && !event.target.closest('.user-dropdown')) {
+        if (userDropdown && userDropdown.classList.contains('show')) {
+            userDropdown.classList.remove('show');
+        }
+    }
+}
+
+// 모달 외부 클릭 시 모달 숨기기와 드롭다운 숨기기 처리 통합
+window.onclick = function(event) {
+    // 모달 외부 클릭 시 모달 숨기기
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+    
+    // 드롭다운 외부 클릭 시 드롭다운 숨기기
+    if (!event.target.matches('.user-logo') && !event.target.closest('.user-dropdown')) {
+        if (userDropdown && userDropdown.classList.contains('show')) {
+            userDropdown.classList.remove('show');
+        }
+    }
+}
+
+
 
 // const categoryLinks = document.querySelectorAll('.nav-links a');
 // const courseCards = document.querySelectorAll('.course-card');

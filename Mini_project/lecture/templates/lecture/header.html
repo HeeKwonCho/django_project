@@ -9,7 +9,45 @@
     </div>
     <div class="auth-buttons">
       {% if user.is_authenticated %}
-        <button class="btnlogout-popup">로그아웃</button>
+        <div class="user-menu-container">
+          <div class="user-logo" id="userLogo" style="background-image: url('{% static 'images/logo.jpg' %}');"></div>
+          <div class="user-dropdown" id="userDropdown">
+            <div class="user-info">
+              <img src="{% static 'images/apple.jpg' %}" alt="User Profile">
+              <div class="user-details">
+                <h6>{{ user.username }}</h6>
+                <p>사용자</p>
+              </div>
+            </div>
+            <div class="menu-item">
+              <i class="fas fa-book"></i>
+              <span>내가 들은 학습</span>
+            </div>
+            <div class="menu-item">
+              <i class="fas fa-play-circle"></i>
+              <span>내가 단 리뷰보기</span>
+            </div>
+            <div class="menu-item">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>대시보드</span>
+            </div>
+            <div class="menu-item">
+              <i class="fas fa-shopping-cart"></i>
+              <span>구매 내역</span>
+            </div>
+            <div class="menu-item">
+              <i class="fas fa-heart"></i>
+              <span>좋아요</span>
+            </div>
+            <div class="menu-item">
+              <i class="fas fa-cog"></i>
+              <span>설정</span>
+            </div>
+            <div class="logout">
+              <a href="{% url 'logout' %}">로그아웃</a>
+            </div>
+          </div>
+        </div>
       {% else %}
         <button class="btnlogin-popup">로그인</button>
         <button class="btnsignup-popup">회원가입</button>

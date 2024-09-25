@@ -53,6 +53,7 @@ body {
 .auth-buttons {
     display: flex;
     gap: 8px;
+    margin-right: 20px;
 }
 
 .navbar .btnlogin-popup {
@@ -75,7 +76,7 @@ body {
     padding: 8px 16px;
 }
 
-.navbar .btnlogout-popup {
+/* .navbar .btnlogout-popup {
     background-color: #00c471;
     color: white;
     border: none;
@@ -83,7 +84,7 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-}
+} */
 
 .navbar .btnlogin-popup:hover {
     background-color: #009858;
@@ -93,9 +94,9 @@ body {
     background-color: red;
 }
 
-.navbar .btnlogout-popup:hover {
+/* .navbar .btnlogout-popup:hover {
     background-color: #009858;
-}
+} */
 
 .course-container {
     display: grid;
@@ -222,7 +223,7 @@ body {
     background-color: #f05650;
 }
 
-.btnlogout-popup {
+/* .btnlogout-popup {
     background-color: #00c471;
     color: white;
     padding: 10px 20px;
@@ -230,16 +231,16 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-}
+} */
 
 .btnlogin-popup:hover,
 .btnsignup-popup:hover {
     background-color: #009858;
 }
 
-.btnlogout-popup:hover {
+/* .btnlogout-popup:hover {
     background-color: #009858;
-}
+} */
 
 .modal {
     display: none;
@@ -373,4 +374,108 @@ body {
 
 .pagination .disabled .page-link {
     color: #6c757d;
+}
+
+.navbar .btnlogout-popup {
+    display: none;
+}
+
+.user-menu-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.user-logo {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f2f2f2;
+    border: 2px solid #ddd;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 240px;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.user-dropdown .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-dropdown .user-info img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.user-dropdown .user-info .user-details {
+    flex-grow: 1;
+}
+
+.user-dropdown .user-info .user-details h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user-dropdown .user-info .user-details p {
+    margin: 0;
+    color: #777;
+    font-size: 12px;
+}
+
+.user-dropdown .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-dropdown .menu-item:hover {
+    background-color: #f7f7f7;
+}
+
+.user-dropdown .menu-item i {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #555;
+}
+
+.user-dropdown .menu-item span {
+    flex-grow: 1;
+    font-size: 14px;
+    color: #333;
+}
+
+.user-dropdown .logout {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+    cursor: pointer;
+    color: #555;
+    transition: background-color 0.3s;
+}
+
+.user-dropdown .logout:hover {
+    background-color: #f2f2f2;
 }
