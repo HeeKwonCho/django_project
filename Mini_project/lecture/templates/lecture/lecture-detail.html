@@ -5,43 +5,19 @@
 {% endblock %}
 {% block contents %}
   <div class="course-detail">
-    {% comment %} {% for lec in lecture_info %}
-    <img src="{{ lec.lec_img_link }}" alt="{{ lec.lec_title }}" class="course-image">
-    <h1 id="course-title">{{ lec.lec_title }}</h1>
-    <p id="course-instructor">강사:
-      {{ lec.lecturer.lecturer_name }}</p>
-    <p id="course-rating">평점: ★
-      {{ lec.rating }}</p>
-    {% endfor %} {% endcomment %}
-    <img src="{{ lecture_info.lec_img_link }}" alt="{{ lecture_info.lec_title }}" class="course-image">
-    {% comment %} <h1 id="course-title">{{ lecture_info.lec_title }}</h1> {% endcomment %}
-    <h1 id="course-title">제목이야?</h1>
-    <p id="course-instructor">강사:
-      {{ lecture_info.lecturer.lecturer_name }}</p>
-    <p id="course-rating">평점: ★
-      {{ lecture_info.rating }}</p>
+    <h1 id="course-title">강의 제목</h1>
+    <p id="course-instructor">강사: 강사명</p>
+    <p id="course-price">가격: 00,000원</p>
+    <p id="course-rating">평점: ★ 4.5</p>
   </div>
 
   <div class="comments-section">
     <h2>리뷰 및 댓글</h2>
-    <div id="comments-list">
-        <ul>
-            {% for comment in comment_list %}
-            <li>{{ comment.content }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% if user.is_authenticated %}
+    <div id="comments-list"></div>
     <div class="comment-form">
-      <form method="POST">
-        {% csrf_token %}
-        내용:
-        {{ form.content }}
-      {% comment %} <textarea id="comment-input" placeholder="리뷰를 작성하세요..."></textarea> {% endcomment %}
-        <button id="submit-comment">댓글 작성</button>
-      </form>
+      <textarea id="comment-input" placeholder="리뷰를 작성하세요..."></textarea>
+      <button id="submit-comment">댓글 작성</button>
     </div>
-    {% endif %}
   </div>
 {% endblock %}
 {% block scripts %}

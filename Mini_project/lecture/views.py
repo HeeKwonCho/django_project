@@ -1,8 +1,6 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 from lecture.models import Categories, Lectures, Comments
 from django.core.paginator import Paginator
-from django.http import Http404
-from .forms import CommentForm
 
 
 # Create your views here.
@@ -60,34 +58,10 @@ def lecture_list_in_category(request, category_id):
     return response
 
 
-def lecture_detail(request, category_id, lecture_id):
+def lecture_detail(request, lecture_id):
     category_list = Categories.objects.all()
-
-    # try:
-    #     lecture = Lectures.objects.filter(
-    #         id=lecture_id).prefetch_related("comments_set")
-    # except Lectures.DoesNotExist:
-    #     raise Http404
-    # lecture = get_object_or_404(Lectures, id=lecture_id)
-    # lecture_info = Lectures.objects.filter(id=lecture_id)
-    lecture = Lectures.objects.filter(category_id=category_id).get(
-        id=lecture_id)
-    comment_list = lecture.comments_set.all()
-    form = CommentForm()
-
-    if request.method == "POST":
-        form = CommentForm(request.POST)
-
-        if form.is_valid():
-            data = form.data
-            comment = Comments(
-                content=data["content"],
-                lecture_id=lecture_id,
-                user_id=request.user.id,
-            )
-            comment.save()
-            return redirect(
-                f"/lecture/category/{category_id}/detail/{lecture_id}")
+    lecture = Lectures.objects.filter(
+        id=lecture_id).prefetch_related("comment_set")
 
     response = render(
         request,
@@ -95,8 +69,6 @@ def lecture_detail(request, category_id, lecture_id):
         {
             "category_list": category_list,
             "lecture_info": lecture,
-            "comment_list": comment_list,
-            "form": form,
         },
     )
     return response
