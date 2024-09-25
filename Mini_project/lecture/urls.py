@@ -8,7 +8,9 @@ urlpatterns = [
         views.lecture_list_in_category,
         name="lecture-list-in-category",
     ),
-    path("detail/<int:lecture_id>",
-         views.lecture_detail,
-         name="lecture-detail"),
+    path(
+        "category/<int:category_id>/detail/<int:lecture_id>",
+        views.lecture_detail,
+        name="lecture-detail",
+    ),
 ]
