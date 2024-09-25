@@ -1,6 +1,8 @@
+{% load static %}
+
 <header class="header">
   <nav class="navbar">
-    <a href="/lecture" class="logo"><img class="logo_img" src="images/logo.jpg" alt=""></a>
+    <a href="/lecture" class="logo"><img class="logo_img" src="{% static 'images/logo.jpg' %}" alt=""></a>
     <div class="nav-links">
       {% for category in category_list %}
         <a href="#">{{ category.cat_name }}</a>

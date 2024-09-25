@@ -326,3 +326,23 @@ body {
     width: 40px;
     cursor: pointer;
 }
+
+.pagination .page-link {
+    color: #007bff;
+    border: none;
+}
+
+.pagination .page-link:hover {
+    color: #0056b3;
+    background-color: #f8f9fa;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.pagination .disabled .page-link {
+    color: #6c757d;
+}
