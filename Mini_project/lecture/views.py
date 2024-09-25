@@ -16,7 +16,8 @@ def lecture_list(request):
 
     # page_numbers = list(range(start + 1, end + 2))
     category_list = Categories.objects.all()
-    lecture_list = Lectures.objects.prefetch_related("comments_set").all()
+    lecture_list = Lectures.objects.filter(
+        category_id=category_list[0].id).order_by("-created_at")
 
     PAGE_SIZE = 20
     paginator = Paginator(lecture_list, PAGE_SIZE)
@@ -30,6 +31,44 @@ def lecture_list(request):
         {
             "category_list": category_list,
             "lecture_list": lecture_page_obj,
+        },
+    )
+    return response
+
+
+def lecture_list_in_category(request, category_id):
+    category_list = Categories.objects.all()
+    lecture_list = Lectures.objects.filter(
+        category_id=category_id).order_by("-created_at")
+
+    PAGE_SIZE = 20
+    paginator = Paginator(lecture_list, PAGE_SIZE)
+
+    page_number = request.GET.get("page")
+    lecture_page_obj = paginator.get_page(page_number)
+
+    response = render(
+        request,
+        "lecture/lecture-list.html",
+        {
+            "category_list": category_list,
+            "lecture_list": lecture_page_obj,
+        },
+    )
+    return response
+
+
+def lecture_detail(request, lecture_id):
+    category_list = Categories.objects.all()
+    lecture = Lectures.objects.filter(
+        id=lecture_id).prefetch_related("comment_set")
+
+    response = render(
+        request,
+        "lecture/lecture-detail.html",
+        {
+            "category_list": category_list,
+            "lecture_info": lecture,
         },
     )
     return response

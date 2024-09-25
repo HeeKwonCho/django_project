@@ -1,5 +1,6 @@
 {% extends "./layout.html" %}
 {% load humanize %}
+{% load static %}
 
 {% block contents %}
   <section class="course-section">
@@ -9,7 +10,8 @@
         <div class="course-card" data-id="{{ lec.id }}" data-category="웹 개발">
           <img src="{{ lec.lec_img_link }}" alt="{{ lec.title }}" class="course-image">
           <div class="course-info">
-            <a href="{{ lec.lec_link }}" class="course-title">{{ lec.lec_title }}</a>
+            {% comment %} <a href="{{ lec.lec_link }}" class="course-title">{{ lec.lec_title }}</a> {% endcomment %}
+            <a href="{% url 'lecture-detail' lec.id %}" class="course-title">{{ lec.lec_title }}</a>
             <div class="course-instructor">{{ lec.lecturer.lecturer_name }}</div>
             <div class="course-rating">
               <span class="star">★</span>
@@ -46,7 +48,7 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <div class="login-form">
-        <img src="images/logo.jpg" alt="Logo" class="logo-img">
+        <img src="{% static 'images/logo.jpg' %}" alt="Logo" class="logo-img">
         <form>
           <input type="email" placeholder="이메일" required="required">
           <input type="password" placeholder="비밀번호" required="required">
@@ -61,14 +63,18 @@
           <div class="social-login">
             <p>간편 로그인</p>
             <div class="social-icons">
-              <a href="#"><img src="images/kakao.png" alt="Kakao"></a>
-              <a href="#"><img src="images/google.png" alt="Google"></a>
-              <a href="#"><img src="images/github.png" alt="GitHub"></a>
-              <a href="#"><img src="images/apple.png" alt="Apple"></a>
+              <a href="#"><img src="{% static 'images/kakao.png' %}" alt="Kakao"></a>
+              <a href="#"><img src="{% static 'images/google.png' %}" alt="Google"></a>
+              <a href="#"><img src="{% static 'images/github.png' %}" alt="GitHub"></a>
+              <a href="#"><img src="{% static 'images/apple.png' %}" alt="Apple"></a>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
+{% endblock %}
+{% block scripts %}
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/signup.js' %}"></script>
 {% endblock %}

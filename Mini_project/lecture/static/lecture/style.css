@@ -75,12 +75,26 @@ body {
     padding: 8px 16px;
 }
 
+.navbar .btnlogout-popup {
+    background-color: #00c471;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .navbar .btnlogin-popup:hover {
     background-color: #009858;
 }
 
 .navbar .btnsignup-popup:hover {
     background-color: red;
+}
+
+.navbar .btnlogout-popup:hover {
+    background-color: #009858;
 }
 
 .course-container {
@@ -208,8 +222,22 @@ body {
     background-color: #f05650;
 }
 
+.btnlogout-popup {
+    background-color: #00c471;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .btnlogin-popup:hover,
 .btnsignup-popup:hover {
+    background-color: #009858;
+}
+
+.btnlogout-popup:hover {
     background-color: #009858;
 }
 
@@ -325,4 +353,36 @@ body {
 .social-icons img {
     width: 40px;
     cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    padding: 10px;
+}
+
+.pagination a {
+    color: #007bff; /* 링크 색상 */
+    padding: 8px 16px; /* 여백 */
+    text-decoration: none; /* 밑줄 제거 */
+    border: 1px solid #ddd; /* 테두리 */
+    margin: 0 4px; /* 간격 */
+    border-radius: 4px; /* 둥근 모서리 */
+    transition: background-color 0.3s; /* 전환 효과 */
+}
+
+.pagination a:hover {
+    background-color: #f1f1f1; /* 호버 시 배경색 변경 */
+}
+
+.pagination .active {
+    background-color: #007bff; /* 현재 페이지 강조 배경색 */
+    color: white; /* 현재 페이지 텍스트 색상 */
+    border: 1px solid #007bff; /* 현재 페이지 테두리 색상 */
+}
+
+.pagination .disabled {
+    color: #ccc; /* 비활성화된 링크 색상 */
+    pointer-events: none; /* 클릭 방지 */
+    border: 1px solid #ddd; /* 비활성화된 링크 테두리 */
 }
