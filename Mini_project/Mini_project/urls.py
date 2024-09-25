@@ -23,6 +23,9 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("lecture/", include("lecture.urls")),
-    path('accounts/', include('django.contrib.auth.urls')),  # Django 기본 인증 URL 포함
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # 로그아웃 URL 추가
+    path("user/", include("user.urls")),
+    path("accounts/",
+         include("django.contrib.auth.urls")),  # Django 기본 인증 URL 포함
+    path("logout/", auth_views.LogoutView.as_view(),
+         name="logout"),  # 로그아웃 URL 추가
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

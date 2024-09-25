@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "lecture",
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -128,4 +129,4 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGOUT_REDIRECT_URL = 'https://127.0.0.1:8000/lecture'
+LOGOUT_REDIRECT_URL = "https://127.0.0.1:8000/lecture"

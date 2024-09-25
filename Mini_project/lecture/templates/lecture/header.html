@@ -49,8 +49,10 @@
           </div>
         </div>
       {% else %}
-        <button class="btnlogin-popup">로그인</button>
-        <button class="btnsignup-popup">회원가입</button>
+        {% comment %} <button class="btnlogin-popup">로그인</button>
+        <button class="btnsignup-popup">회원가입</button> {% endcomment %}
+        <a class="btnlogin-popup" href="#">로그인</a>
+        <a class="btnsignup-popup" href="#">회원가입</a>
       {% endif %}
     </div>
   </nav>

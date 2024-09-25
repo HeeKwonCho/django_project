@@ -7,16 +7,16 @@ function getQueryParams() {
     return params;
 }
 
-window.onload = function() {
-    const params = getQueryParams();
+// window.onload = function() {
+//     const params = getQueryParams();
 
-    document.getElementById('course-title').textContent = params.title;
-    document.getElementById('course-instructor').textContent = `강사: ${params.instructor}`;
-    document.getElementById('course-price').textContent = `가격: ${params.price}`;
-    document.getElementById('course-rating').textContent = `평점: ★ ${params.rating}`;
+//     document.getElementById('course-title').textContent = params.title;
+//     document.getElementById('course-instructor').textContent = `강사: ${params.instructor}`;
+//     document.getElementById('course-price').textContent = `가격: ${params.price}`;
+//     document.getElementById('course-rating').textContent = `평점: ★ ${params.rating}`;
 
-    loadComments(params.id);
-}
+//     loadComments(params.id);
+// }
 
 function loadComments(courseId) {
     const comments = JSON.parse(localStorage.getItem(`comments-${courseId}`)) || [];
