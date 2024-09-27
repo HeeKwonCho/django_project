@@ -6,10 +6,10 @@ if (btnSignup) {
     }
 }
 
-function validateEmail(email) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-}
+// function validateEmail(email) {
+//     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     return emailPattern.test(email);
+// }
 
 function validatePassword(password) {
     const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,32}$/;
@@ -23,15 +23,15 @@ document.addEventListener('DOMContentLoaded', function() {
     signupForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const email = document.getElementById('email').value.trim();
+        // const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
         const passwordConfirm = document.getElementById('password-confirm').value.trim();
         const termsChecked = document.getElementById('terms').checked;
 
-        if (!validateEmail(email)) {
-            alert('유효한 이메일을 입력하세요.');
-            return;
-        }
+        // if (!validateEmail(email)) {
+        //     alert('유효한 이메일을 입력하세요.');
+        //     return;
+        // }
 
         if (!validatePassword(password)) {
             alert('비밀번호 조건을 확인하세요.');
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const signupData = {
-            email: email,
+            // email: email,
             password: password,
         };
 

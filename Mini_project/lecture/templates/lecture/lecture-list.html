@@ -97,14 +97,15 @@
       <span class="close">&times;</span>
       <div class="login-form">
         <img src="{% static 'images/logo.jpg' %}" alt="Logo" class="logo-img">
-        <form>
+        <form method="POST" action="{% url 'user:login' %}">
+          {% csrf_token %}
           <input type="email" placeholder="이메일" required="required">
           <input type="password" placeholder="비밀번호" required="required">
           <button type="submit" class="login-btn">로그인</button>
           <div class="links">
             <a href="#">비밀번호 찾기</a>
             |
-            <a href="#">회원가입</a>
+            <a href="{% url 'user:register' %}">회원가입</a>
             |
             <a href="#">아이디(이메일) 찾기</a>
           </div>
@@ -124,5 +125,4 @@
 {% endblock %}
 {% block scripts %}
   <script src="{% static 'js/script.js' %}"></script>
-  <script src="{% static 'js/signup.js' %}"></script>
 {% endblock %}

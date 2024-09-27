@@ -13,4 +13,9 @@ urlpatterns = [
         views.lecture_detail,
         name="lecture-detail",
     ),
+    path(
+        "search/",
+        views.lecture_search,
+        name="lecture-search",
+    ),
 ]

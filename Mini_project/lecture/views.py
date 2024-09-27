@@ -18,8 +18,9 @@ def lecture_list(request):
 
     # page_numbers = list(range(start + 1, end + 2))
     category_list = Categories.objects.all()
-    lecture_list = Lectures.objects.filter(
-        category_id=category_list[0].id).order_by("-created_at")
+    # lecture_list = Lectures.objects.filter(
+    #     category_id=category_list[0].id).order_by("-created_at")
+    lecture_list = Lectures.objects.all().order_by("-created_at")
 
     PAGE_SIZE = 20
     paginator = Paginator(lecture_list, PAGE_SIZE)
@@ -97,6 +98,31 @@ def lecture_detail(request, category_id, lecture_id):
             "lecture_info": lecture,
             "comment_list": comment_list,
             "form": form,
+        },
+    )
+    return response
+
+
+def lecture_search(request):
+    category_list = Categories.objects.all()
+
+    if request.method == "POST":
+        print(request.POST)
+
+    lecture_list = Lectures.objects.all().order_by("-created_at")
+
+    PAGE_SIZE = 20
+    paginator = Paginator(lecture_list, PAGE_SIZE)
+
+    page_number = request.GET.get("page")
+    lecture_page_obj = paginator.get_page(page_number)
+
+    response = render(
+        request,
+        "lecture/lecture-list.html",
+        {
+            "category_list": category_list,
+            "lecture_list": lecture_page_obj,
         },
     )
     return response
