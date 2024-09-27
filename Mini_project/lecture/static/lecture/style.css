@@ -479,3 +479,30 @@ body {
 .user-dropdown .logout:hover {
     background-color: #f2f2f2;
 }
+
+.search-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    position: relative;
+}
+  
+  .search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+  
+  .search-btn {
+    position: absolute;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6c757d;
+}
+  
+  .search-btn svg {
+    width: 20px;
+    height: 20px;
+}
