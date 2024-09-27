@@ -14,7 +14,7 @@ urlpatterns = [
         name="lecture-detail",
     ),
     path(
-        "search/",
+        "search/<str:search_word>",
         views.lecture_search,
         name="lecture-search",
     ),

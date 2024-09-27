@@ -102,3 +102,23 @@ window.onclick = function(event) {
 //         window.location.href = `review.html?id=${courseId}&title=${encodeURIComponent(courseTitle)}&instructor=${encodeURIComponent(courseInstructor)}&price=${encodeURIComponent(coursePrice)}&rating=${encodeURIComponent(courseRating)}`;
 //     });
 // });
+
+const search = document.getElementById('search');
+const input = document.querySelector('input[name="search_word"]');
+
+window.onclick = function(event) {
+    if (event.target == search) {
+        const searchWord = input.value;
+        const url = `/lecture/search/${encodeURIComponent(searchWord)}`;
+        window.location.href = url;
+    }
+}
+
+document.querySelector('input[name="search_word"]').addEventListener('keydown', function(event) {
+    if (event.key == 'Enter') {
+        event.preventDefault(); // 기본 Enter 키 동작 방지
+        const searchWord = event.target.value;
+        const url = `/lecture/search/${encodeURIComponent(searchWord)}`;
+        window.location.href = url;
+    }
+});

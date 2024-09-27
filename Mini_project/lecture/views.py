@@ -103,13 +103,11 @@ def lecture_detail(request, category_id, lecture_id):
     return response
 
 
-def lecture_search(request):
+def lecture_search(request, search_word):
     category_list = Categories.objects.all()
 
-    if request.method == "POST":
-        print(request.POST)
-
-    lecture_list = Lectures.objects.all().order_by("-created_at")
+    lecture_list = Lectures.objects.filter(
+        lec_title__icontains=search_word).order_by("-created_at")
 
     PAGE_SIZE = 20
     paginator = Paginator(lecture_list, PAGE_SIZE)
@@ -123,6 +121,7 @@ def lecture_search(request):
         {
             "category_list": category_list,
             "lecture_list": lecture_page_obj,
+            "search_word": search_word,
         },
     )
     return response
